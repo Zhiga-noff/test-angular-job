@@ -13,7 +13,7 @@
     </div>
     <div class="flexField">
       <app-button-controller [typeButton]="'filter'" (click)="revers()"></app-button-controller>
-      <app-button-controller [typeButton]="'edit'" (click)="activeUsers()"></app-button-controller>
+      <button (click)="activeUsers()" class="button-active-show">{{ activeSetFlag ? 'Показать активных' : 'Показать не активных' }}</button>
     </div>
   </div>
 </form>

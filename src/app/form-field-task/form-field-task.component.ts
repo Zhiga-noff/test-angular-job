@@ -30,6 +30,7 @@ export class FormFieldTaskComponent {
 
   closeSearch() {
     this.taskValue = '';
+    this.originalNameList = []
     this._fetchTaskService.getTask().subscribe((tasks) => {
       this.taskListUpdate.emit(tasks);
     });
