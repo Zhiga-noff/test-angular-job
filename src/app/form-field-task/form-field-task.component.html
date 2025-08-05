@@ -1,0 +1,19 @@
+<form action="#" class="form" (ngSubmit)="SubmitTask()">
+  <p class="title">Тут твои задачи</p>
+  <div class="flexForm">
+    <div class="flexField">
+      <input class="field" type="text" name="fieldNewTask"
+             placeholder="Напиши имя пользователя"
+             (input)="onChangeInput($event.target['value'])"
+             [(ngModel)]="taskValue">
+      <button class="button buttonGrey">Поиск</button>
+      <button class="button buttonRed"
+              (click)="closeSearch()">Сбросить
+      </button>
+    </div>
+    <div class="flexField">
+      <app-button-controller [typeButton]="'filter'" (click)="revers()"></app-button-controller>
+      <app-button-controller [typeButton]="'edit'" (click)="activeUsers()"></app-button-controller>
+    </div>
+  </div>
+</form>

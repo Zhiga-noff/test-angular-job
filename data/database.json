@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "name": "Привет",
+      "id": "60",
+      "email": "",
+      "active": false
+    },
+    {
+      "id": "27",
+      "name": "Вот и я",
+      "email": "",
+      "active": false
+    },
+    {
+      "name": "Кирилл Николаевич",
+      "id": "92",
+      "email": "",
+      "active": false
+    },
+    {
+      "id": "22",
+      "name": "фапцавп",
+      "email": "",
+      "active": true
+    },
+    {
+      "id": "15",
+      "name": "афыфвафыва",
+      "email": "",
+      "active": true
+    },
+    {
+      "id": "14",
+      "name": "5463474576",
+      "email": "",
+      "active": false
+    },
+    {
+      "id": "57",
+      "name": "лпролпол",
+      "email": "",
+      "active": false
+    },
+    {
+      "id": "27",
+      "name": "тсмитсимтсмит",
+      "email": "",
+      "active": false
+    }
+  ]
+}
