@@ -14,22 +14,22 @@ export class FormFieldUserComponent {
 
 
   originalNameList: UserInterface[] = [];
-  taskValue: string = '';
+  userValue: string = '';
   activeSetFlag: boolean = true;
   reverseFlag: 'a > b' | 'b > a' | 'random' = 'random';
 
   constructor(private _fetchUsersService: FetchUsersService) {}
 
   SubmitTask() {
-      this.searchValue.emit(this.taskValue);
+      this.searchValue.emit(this.userValue);
   }
 
   onChangeInput(value: string | null = '') {
-    this.taskValue = value;
+    this.userValue = value;
   }
 
   closeSearch() {
-    this.taskValue = '';
+    this.userValue = '';
     this.originalNameList = []
     this._fetchUsersService.getUsers().subscribe((users) => {
       this.userListUpdate.emit(users);

@@ -5,7 +5,7 @@
       <input class="field" type="text" name="fieldNewTask"
              placeholder="Напиши имя пользователя"
              (input)="onChangeInput($event.target['value'])"
-             [(ngModel)]="taskValue">
+             [(ngModel)]="userValue">
       <button class="button buttonGrey">Поиск</button>
       <button class="button buttonRed"
               (click)="closeSearch()">Сбросить
