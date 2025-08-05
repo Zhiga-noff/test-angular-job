@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FetchTaskService } from '../fetch-task.service';
+import { FetchUsersService } from '../fetch-users.service';
 import { UserInterface } from '../../interfaces/user-interface';
 
 @Component({
-  selector: 'app-form-field-task',
-  templateUrl: './form-field-task.component.html',
-  styleUrls: ['./form-field-task.component.scss'],
+  selector: 'app-form-field-user',
+  templateUrl: './form-field-user.component.html',
+  styleUrls: ['./form-field-user.component.scss'],
 })
-export class FormFieldTaskComponent {
-  @Input() taskList: UserInterface[];
-  @Output() taskListUpdate: EventEmitter<UserInterface[]> = new EventEmitter();
+export class FormFieldUserComponent {
+  @Input() userList: UserInterface[];
+  @Output() userListUpdate: EventEmitter<UserInterface[]> = new EventEmitter();
   @Output() searchValue: EventEmitter<string> = new EventEmitter();
 
 
@@ -18,7 +18,7 @@ export class FormFieldTaskComponent {
   activeSetFlag: boolean = true;
   reverseFlag: 'a > b' | 'b > a' | 'random' = 'random';
 
-  constructor(private _fetchTaskService: FetchTaskService) {}
+  constructor(private _fetchUsersService: FetchUsersService) {}
 
   SubmitTask() {
       this.searchValue.emit(this.taskValue);
@@ -31,8 +31,8 @@ export class FormFieldTaskComponent {
   closeSearch() {
     this.taskValue = '';
     this.originalNameList = []
-    this._fetchTaskService.getTask().subscribe((tasks) => {
-      this.taskListUpdate.emit(tasks);
+    this._fetchUsersService.getUsers().subscribe((users) => {
+      this.userListUpdate.emit(users);
     });
   }
 
@@ -40,13 +40,13 @@ export class FormFieldTaskComponent {
     switch (this.reverseFlag) {
       case 'a > b': {
         this.reverseFlag = 'b > a';
-        this.taskList.reverse();
-        this.taskListUpdate.emit(this.taskList);
+        this.userList.reverse();
+        this.userListUpdate.emit(this.userList);
         return;
       }
       default: {
         this.reverseFlag = 'a > b';
-        this.taskList.sort((a: UserInterface, b: UserInterface) => {
+        this.userList.sort((a: UserInterface, b: UserInterface) => {
           const nameA = a.name.toLowerCase();
           const nameB = b.name.toLowerCase();
           if (nameA > nameB) {
@@ -57,23 +57,22 @@ export class FormFieldTaskComponent {
             return 0;
           }
         });
-        this.taskListUpdate.emit(this.taskList);
+        this.userListUpdate.emit(this.userList);
       }
     }
   }
 
   activeUsers() {
     if (!this.originalNameList.length) {
-      this.originalNameList= this.taskList;
+      this.originalNameList= this.userList;
     }
 
     if (this.activeSetFlag) {
-      this.taskListUpdate.emit(this.originalNameList.filter((task: UserInterface) => task.active));
+      this.userListUpdate.emit(this.originalNameList.filter((task: UserInterface) => task.active));
       this.activeSetFlag = false
       return
     }
-    console.log(this)
-    this.taskListUpdate.emit(this.originalNameList.filter((task: UserInterface) => !task.active));
+    this.userListUpdate.emit(this.originalNameList.filter((task: UserInterface) => !task.active));
     this.activeSetFlag = true
   }
 }

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormFieldTaskComponent } from './form-field-task.component';
+import { FormFieldUserComponent } from './form-field-user.component';
 
 describe('FormFieldTaskComponent', () => {
-  let component: FormFieldTaskComponent;
-  let fixture: ComponentFixture<FormFieldTaskComponent>;
+  let component: FormFieldUserComponent;
+  let fixture: ComponentFixture<FormFieldUserComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FormFieldTaskComponent]
+      declarations: [FormFieldUserComponent]
     });
-    fixture = TestBed.createComponent(FormFieldTaskComponent);
+    fixture = TestBed.createComponent(FormFieldUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

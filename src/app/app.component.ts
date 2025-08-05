@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchTaskService } from './fetch-task.service';
+import { FetchUsersService } from './fetch-users.service';
 import { UserInterface } from '../interfaces/user-interface';
 
 @Component({
@@ -8,35 +8,35 @@ import { UserInterface } from '../interfaces/user-interface';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  taskList: UserInterface[] | undefined;
+  userList: UserInterface[] | undefined;
   isLoading: boolean = true;
 
-  constructor(private _fetchTaskService: FetchTaskService) {}
+  constructor(private _fetchUsersService: FetchUsersService) {}
 
   ngOnInit() {
     this.fetchTask();
   }
 
   fetchTask() {
-    this._fetchTaskService.getTask().subscribe((tasks) => {
-      this.taskList = tasks;
+    this._fetchUsersService.getUsers().subscribe((tasks) => {
+      this.userList = tasks;
       this.isLoading = false;
     });
   }
 
-  updateTaskList(event: UserInterface[]) {
-    this.taskList = event;
+  updateUserList(event: UserInterface[]) {
+    this.userList = event;
   }
 
-  searchInTaskList(event: string) {
+  searchInUserList(event: string) {
     const arrayTemplate: UserInterface[] = [];
-    this.taskList.forEach((task) => {
+    this.userList.forEach((task) => {
       const title = task.name.toLowerCase();
       if (title.includes(event.toLowerCase())) {
         arrayTemplate.push(task);
       }
     });
 
-    this.taskList = arrayTemplate;
+    this.userList = arrayTemplate;
   }
 }

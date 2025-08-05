@@ -1,11 +1,11 @@
 <div class="app">
-  <app-form-field-task [taskList]="taskList"
-                       (taskListUpdate)="updateTaskList($event)"
-                       (searchValue)="searchInTaskList($event)"/>
+  <app-form-field-user [userList]="userList"
+                       (userListUpdate)="updateUserList($event)"
+                       (searchValue)="searchInUserList($event)"/>
   <ul class="taskList" *ngIf="!isLoading">
-    <li *ngFor="let task of taskList">
-      <app-task-name class="task" [task]="task" [taskList]="taskList"
-                     (taskListUpdate)="updateTaskList($event)"/>
+    <li *ngFor="let userName of userList">
+      <app-name-users class="task" [userName]="userName" [userList]="userList"
+                     (userListUpdate)="updateUserList($event)"/>
     </li>
   </ul>
   <div class="loader" *ngIf="isLoading"></div>

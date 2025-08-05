@@ -1,0 +1,11 @@
+<p class="name-user" (click)="clickName()">{{userName?.name}}</p>
+<div *ngIf="showEmail" class="popup">
+  <div class="container">
+    <div class="close" (click)="clickName()"></div>
+      <small>
+    {{userName.email}}
+      </small>
+  </div>
+
+</div>
+
